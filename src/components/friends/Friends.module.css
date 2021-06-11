@@ -31,11 +31,11 @@
 }
 
 .online {
-  background-color: green;
+  background-color: rgb(124, 252, 0, 0.5);
   composes: status;
 }
 
 .offline {
-  background-color: red;
+  background-color: rgb(255, 0, 0, 0.5);
   composes: status;
 }
