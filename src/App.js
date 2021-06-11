@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./components/profileList/profileListItem/ProfileListItem";
+import Profile from "./components/profile/Profile";
 import StaticalList from "./components/statistics/statisticsList/StatisticsList";
 import FriendList from "./components/friends/friendList/FriendList";
 import TransactionList from "./components/transactionHistory/TransactionHistoryList/TransactionHistoryList";
@@ -16,11 +16,9 @@ const App = () => {
         name={user.name}
         tag={user.tag}
         location={user.location}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
+        stats={user.stats}
       />
-      <StaticalList stats={statics} />
+      <StaticalList stats={statics} title="UPLOAD STATS" />
       <FriendList friends={friends} />
       <TransactionList items={transactions} />
     </div>

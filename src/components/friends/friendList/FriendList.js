@@ -1,12 +1,20 @@
 import React from "react";
 import Friends from "../Friend";
+import PropTypes from "prop-types";
 
-const FriendsList = ({ friends }) => (
+const FriendList = ({ friends }) => (
   <ul>
-    {friends.map(({ avatar, name, isOnline, id }) => (
-      <Friends key={id} avatar={avatar} name={name} isOnline={isOnline} />
+    {friends.map((friend) => (
+      <Friends key={friend.id} {...friend} />
     ))}
   </ul>
 );
 
-export default FriendsList;
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.object),
+};
+FriendList.defaultProps = {
+  avatar: "https://image.flaticon.com/icons/png/512/42/42901.png",
+};
+
+export default FriendList;

@@ -1,17 +1,22 @@
 import React from "react";
 import Statistic from "../Statistics";
 import styles from "../Statistics.module.css";
+import PropTypes from "prop-types";
 
-const StaticalList = ({ stats }) => (
+const StatisticsList = ({ stats, title }) => (
   <section className={styles.statisticSection}>
-    <h2 className={styles.statisticTitle}>UPLOAD STATS</h2>
+    {title && <h2 className={styles.statisticTitle}>{title}</h2>}
 
     <ul className={styles.statisticContainer}>
-      {stats.map(({ id, label, percentage }) => (
-        <Statistic key={id} label={label} percentage={percentage} />
+      {stats.map((stat) => (
+        <Statistic key={stat.id} {...stat} />
       ))}
     </ul>
   </section>
 );
 
-export default StaticalList;
+StatisticsList.propTypes = {
+  stats: PropTypes.arrayOf(PropTypes.object),
+  title: PropTypes.string.isRequired,
+};
+export default StatisticsList;

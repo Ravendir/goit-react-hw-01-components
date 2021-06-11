@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./Statistics.module.css";
+import PropTypes from "prop-types";
 
-const Statistic = ({ id, label, percentage }) => {
+const Statistics = ({ label, percentage }) => {
   function randomColor() {
     return `rgb(
       ${Math.floor(Math.random() * 255)},
@@ -12,7 +13,6 @@ const Statistic = ({ id, label, percentage }) => {
   return (
     <li
       className={styles.statisticList}
-      key={id}
       style={{ backgroundColor: randomColor(), opacity: 0.5 }}
     >
       <span className={styles.statisticLabel}>{label}</span>
@@ -21,4 +21,9 @@ const Statistic = ({ id, label, percentage }) => {
   );
 };
 
-export default Statistic;
+Statistics.propTypes = {
+  label: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired,
+};
+
+export default Statistics;
